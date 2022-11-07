@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment{
-        FUNCTION_NAME="educacionit_s3toDynamonCSVImport"
-        BUCKETS3="roxsross-code-backend-bucket"
+        FUNCTION_NAME="educacionIT_s3toDynamonCSVImport"
+        BUCKETS3="desafio-code-backend-bucket"
         ZIP="function.zip"
         CODE="lambda_function.py"
     }
@@ -21,7 +21,6 @@ pipeline {
         } 
         stage('BUILD TO ZIP') {
             steps {
-                echo "Building ${BRANCH_NAME}"
                 sh 'zip -jr $ZIP $CODE'
                 sh 'ls -lrt'
             }
